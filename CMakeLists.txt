@@ -59,7 +59,12 @@ message(STATUS "${BoldYellow}C++ Compiler Flags:${ColorReset}\n"
 # MARK: - Dependencies
 #
 
-add_subdirectory(Dependencies/TinkerLibrary)
+if(PROJECT_IS_TOP_LEVEL)
+    message(STATUS "${BoldCyan}${PROJECT_NAME} is a top-level project. Will add submodules as dependencies.${ColorReset}")
+    add_subdirectory(Dependencies/TinkerLibrary)
+else()
+    message(STATUS "${BoldMagenta}${PROJECT_NAME} is imported as a subproject. The top-level project will add submodules as dependencies.${ColorReset}")
+endif()
 
 #
 # MARK: - Targets
