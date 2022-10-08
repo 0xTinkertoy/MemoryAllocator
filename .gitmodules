@@ -1,0 +1,3 @@
+[submodule "Dependencies/TinkerLibrary"]
+	path = Dependencies/TinkerLibrary
+	url = https://github.com/0xTinkertoy/TinkerLibrary.git
