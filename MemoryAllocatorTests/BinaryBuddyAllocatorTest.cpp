@@ -2,7 +2,7 @@
 //  BinaryBuddyAllocatorTest.cpp
 //  MemoryAllocator
 //
-//  Created by FireWolf on 9/22/20.
+//  Created by FireWolf on 2020-9-22.
 //  Copyright © 2020 FireWolf. All rights reserved.
 //
 

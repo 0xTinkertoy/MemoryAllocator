@@ -2,7 +2,7 @@
 //  FixedSizeResourceAllocator.hpp
 //  MemoryAllocator
 //
-//  Created by FireWolf on 9/17/20.
+//  Created by FireWolf on 2020-9-17.
 //  Copyright © 2020 FireWolf. All rights reserved.
 //
 
