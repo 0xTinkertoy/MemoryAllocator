@@ -81,8 +81,8 @@ add_library(${TARGET} ${SOURCE_FILES})
 target_include_directories(${TARGET} PUBLIC Sources)
 target_link_libraries(${TARGET} PUBLIC TinkerLibrary)
 
-if(NOT PROJECT_IS_TOP_LEVEL)
-    message(STATUS "${BoldMagenta}${PROJECT_NAME} is imported as a subproject. Will skip the playground and the unit test targets.${ColorReset}")
+if(PROJECT_IS_TOP_LEVEL)
+    message(STATUS "${BoldMagenta}${PROJECT_NAME} is a top-level project. Will define the playground and the unit test targets.${ColorReset}")
 
     # Target: Playground
     file(GLOB_RECURSE SOURCE_FILES_PLAYGROUND ${TARGET_PLAYGROUND}/*.cpp)
