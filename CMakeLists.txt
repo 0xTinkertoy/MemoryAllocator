@@ -81,12 +81,16 @@ add_library(${TARGET} ${SOURCE_FILES})
 target_include_directories(${TARGET} PUBLIC Sources)
 target_link_libraries(${TARGET} PUBLIC TinkerLibrary)
 
-# Target: Playground
-file(GLOB_RECURSE SOURCE_FILES_PLAYGROUND ${TARGET_PLAYGROUND}/*.cpp)
-add_executable(${TARGET_PLAYGROUND} ${SOURCE_FILES_PLAYGROUND})
-target_link_libraries(${TARGET_PLAYGROUND} PRIVATE ${TARGET})
+if(NOT PROJECT_IS_TOP_LEVEL)
+    message(STATUS "${BoldMagenta}${PROJECT_NAME} is imported as a subproject. Will skip the playground and the unit test targets.${ColorReset}")
 
-# Target: Tests
-file(GLOB_RECURSE SOURCE_FILES_TESTS ${TARGET_TESTS}/*.cpp)
-add_executable(${TARGET_TESTS} ${SOURCE_FILES_TESTS})
-target_link_libraries(${TARGET_TESTS} PRIVATE ${TARGET})
+    # Target: Playground
+    file(GLOB_RECURSE SOURCE_FILES_PLAYGROUND ${TARGET_PLAYGROUND}/*.cpp)
+    add_executable(${TARGET_PLAYGROUND} ${SOURCE_FILES_PLAYGROUND})
+    target_link_libraries(${TARGET_PLAYGROUND} PRIVATE ${TARGET})
+
+    # Target: Tests
+    file(GLOB_RECURSE SOURCE_FILES_TESTS ${TARGET_TESTS}/*.cpp)
+    add_executable(${TARGET_TESTS} ${SOURCE_FILES_TESTS})
+    target_link_libraries(${TARGET_TESTS} PRIVATE ${TARGET})
+endif()
